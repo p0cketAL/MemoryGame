@@ -31,6 +31,7 @@ public class CubeBehaviour : MonoBehaviour
 
     public void RevealColor(){
         GetComponent<Renderer>().material = hiddenMaterial;
+        animator.SetBool("cubeSelected", true);
     }
 
     public void UnrevealColor(){

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class LevelManager : MonoBehaviour
@@ -14,6 +15,9 @@ public class LevelManager : MonoBehaviour
     private List<CubeBehaviour> cubes = new List<CubeBehaviour>();
     private List<CubeBehaviour> cubesRevealed = new List<CubeBehaviour>();
     private List<CubeBehaviour> alreadyMatched = new List<CubeBehaviour>();
+    public TextMeshProUGUI scoreText;
+    private int score = 0;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +58,8 @@ public class LevelManager : MonoBehaviour
         cubesRevealed.Add(cube);
 
         if(cubesRevealed.Count >= 2){
+            score++;
+            scoreText.text = score.ToString();
             if(cubesRevealed[0].hiddenMaterial == cubesRevealed[1].hiddenMaterial){
                 Debug.Log("It's a match!!!");
                 alreadyMatched.Add(cubesRevealed[0]);
@@ -83,4 +89,6 @@ public class LevelManager : MonoBehaviour
     {
         
     }
+
+
 }
